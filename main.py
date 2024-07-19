@@ -3,8 +3,6 @@ import requests
 import re
 import numpy as np
 import pandas as pd
-import bs4
-from bs4 import BeautifulSoup
 
 st.title('Named Entity Recognoition 🔤')
 st.write('Sistem untuk mengidentifikasi entitas saham. Ada 5 entitas yang dapat sistem identifikasi diantaranya nama perusahaan, kode saham, indeks saham, sektor industri dan sub sektor')
