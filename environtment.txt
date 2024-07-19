@@ -6,3 +6,4 @@ scikit-learn
 regex
 Keras==2.4.3
 beautifulsoup4==4.12.2
+spacy
