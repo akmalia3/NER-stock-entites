@@ -4,4 +4,4 @@ pandas==1.5.3
 openpyxl
 scikit-learn
 regex
-keras
+Keras==2.4.3
