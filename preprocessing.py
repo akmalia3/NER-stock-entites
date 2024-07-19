@@ -1,5 +1,5 @@
 # preprocessing function
-import regex as re
+import re
 import pandas as pd
 import spacy
 from spacy.tokenizer import Tokenizer
