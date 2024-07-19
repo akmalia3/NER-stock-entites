@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-import regex as re
+import re
 import numpy as np
 import pandas as pd
 import keras  
