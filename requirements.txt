@@ -7,3 +7,5 @@ regex
 keras
 beautifulsoup4==4.12.2
 spacy==3.7.5
+spacy download en_core_web_sm
+
