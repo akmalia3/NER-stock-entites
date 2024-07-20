@@ -58,7 +58,7 @@ else:
     st.write("Please enter some text to process.")
 
 
-from ner_model_load import model_predict
+from ner_model_load import *
 
 tokens = model_predict(entity)
 
