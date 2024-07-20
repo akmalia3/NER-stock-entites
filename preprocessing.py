@@ -32,7 +32,7 @@ def clean(text):
 
   return text
 
-data = pd.read_excel('\Data\Data Skenario II.xlsx')
+data = pd.read_excel('Data/Data Skenario II.xlsx')
 data = data['Data'].apply(clean)
 dictionary = data.to_list()
 nlp.tokenizer = custom_tokenizer(nlp, dictionary)
