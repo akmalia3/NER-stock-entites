@@ -3,8 +3,6 @@ import regex as re
 import pandas as pd
 from keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
-from map import token2idx, idx2token, tag2idx, idx2tag
-
 import json
 
 # Load token2idx and idx2token
@@ -50,19 +48,3 @@ def model_predict(tokens):
     result = list(zip(tokens, predicted_tags))
 
     return result
-
-from preprocessing import *
-
-input_text = input('masukkan text: ')
-input_clean = clean(input_text)
-doc = nlp(input_clean)
-entity = [token.text for token in doc]
-
-tokens = model_predict(entity)
-
-entity_result = []
-for token, tag in tokens:
-    result = (f"{token}: {tag}")
-    entity_result.append(result)
-
-print(entity_result)
