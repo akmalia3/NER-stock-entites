@@ -1,9 +1,6 @@
 import numpy as np
 import regex as re
 import pandas as pd
-import import_ipynb
-import os
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 from keras.models import load_model
 from keras.preprocessing.sequence import pad_sequences
 from map import token2idx, idx2token, tag2idx, idx2tag
