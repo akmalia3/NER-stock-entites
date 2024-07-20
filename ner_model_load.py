@@ -26,9 +26,10 @@ idx2token = {int(k): v for k, v in idx2token.items()}
 idx2tag = {int(k): v for k, v in idx2tag.items()}
 
 
+model = load_model('Model-NER-Stock.h5')
+
 def model_predict(tokens):
     # load model
-    model = load_model('NER-stock3.keras')
     # 
     if '<UNK>' not in token2idx:
         token2idx['<UNK>'] = len(token2idx)
