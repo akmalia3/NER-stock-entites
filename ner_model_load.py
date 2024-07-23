@@ -44,7 +44,7 @@ model = load_model('NER-BILSTM-FINAL.h5')
 
 def model_predict(tokens):
     # Predict
-    preds = np.argmax(model.predict(np.array(prediksi_kata_padded)), axis=-1)[0]
+    preds = np.argmax(model.predict(np.array(tokens)), axis=-1)[0]
 
     # Convert predictions to tag names
     predicted_tags = [idx2tag[p] for p in preds[:len(tokens)]]  # ensure length matches tokens
