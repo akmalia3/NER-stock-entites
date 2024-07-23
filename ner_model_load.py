@@ -40,7 +40,7 @@ def padd_inference(tokens, max_length=None):
     pad_tokens = pad_sequences(tokens, maxlen=max_length, dtype='int32', padding='post')
     return pad_tokens
 
-model = load_model('Model-NER-Stock.h5')
+model = load_model('NER-BILSTM-FINAL.h5')
 
 def model_predict(tokens):
     # Predict
