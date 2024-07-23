@@ -20,27 +20,29 @@ with open('idx2tag.json', 'r') as f:
     idx2tag = json.load(f)
 
 
-#token2idx = {int(k): v for k, v in token2idx.items()}
 idx2token = {int(k): v for k, v in idx2token.items()}
-#tag2idx = {int(k): v for k, v in tag2idx.items()}
 idx2tag = {int(k): v for k, v in idx2tag.items()}
 
+# Mapping
+if '<UNK>' not in token2idx:
+    token2idx['<UNK>'] = len(token2idx)
+    idx2token[len(idx2token)] = '<UNK>'
+
+def mapping(text, token2idx):
+    return [[token2idx.get(w, token2idx['<UNK>']) for w in text]]
+
+# Padding
+def padd_inference(tokens, max_length=None):
+    if max_length is None:
+        # Use the built-in max function
+        max_length = max(len(token) for token in tokens)  # Remove 'builtins.'
+
+    pad_tokens = pad_sequences(tokens, maxlen=max_length, dtype='int32', padding='post')
+    return pad_tokens
+
+model = load_model('Model-NER-Stock.h5')
 
 def model_predict(tokens):
-    # load model
-    # 
-    model = load_model('Model-NER-Stock.h5')
-    
-    if '<UNK>' not in token2idx:
-        token2idx['<UNK>'] = len(token2idx)
-        idx2token[len(idx2token)] = '<UNK>'
-
-    # Mapping and padding
-    maxlen = 40
-    n_token = 9574
-    tokens_idx = [[token2idx.get(w, token2idx['<UNK>']) for w in tokens]]
-    prediksi_kata_padded = pad_sequences(sequences=tokens_idx, maxlen=maxlen, padding="post", value=n_token - 1)
-
     # Predict
     preds = np.argmax(model.predict(np.array(prediksi_kata_padded)), axis=-1)[0]
 
