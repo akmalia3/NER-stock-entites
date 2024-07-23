@@ -60,7 +60,9 @@ else:
 
 from ner_model_load import *
 
-tokens = model_predict(entity)
+mapping = mapping(entity)
+padding = padd_inference(mapping)
+tokens = model_predict(padding)
 
 entity_result = []
 for token, tag in tokens:
